@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Automation Pro — Smart GST Software for CA & Tax Professionals</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a3a6b;
+  --navy-dark: #0f2244;
+  --gold: #c8972a;
+  --gold-light: #e0b84a;
+  --white: #ffffff;
+  --off-white: #f5f7fa;
+  --text: #1a2332;
+  --text-2: #4a5568;
+  --green: #1e7e4a;
+  --red: #c0392b;
+  --border: #dce3ed;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  background: var(--navy-dark);
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--gold); }
+nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--navy-dark) !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+}
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-dark) !important; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1e4d8c 100%);
+  padding: 100px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,151,42,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(200,151,42,0.2);
+  border: 1px solid rgba(200,151,42,0.4);
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  max-width: 700px;
+}
+.hero h1 span { color: var(--gold); }
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,151,42,0.4); }
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.stat-item { text-align: left; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+.stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+
+/* FEATURES */
+.section { padding: 80px 5%; }
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--navy-dark);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-2);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feature-card:hover { box-shadow: 0 12px 40px rgba(26,58,107,0.12); transform: translateY(-4px); }
+.feature-card:hover::before { opacity: 1; }
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.feature-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 0.6rem;
+}
+.feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* HOW IT WORKS */
+.how-section {
+  background: var(--navy-dark);
+  padding: 80px 5%;
+}
+.how-section .section-title { color: var(--white); }
+.how-section .section-sub { color: rgba(255,255,255,0.65); }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.step-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+.step-num {
+  width: 56px;
+  height: 56px;
+  background: rgba(200,151,42,0.15);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.step-item h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.step-item p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+/* PRICING */
+.pricing-section { background: var(--off-white); padding: 80px 5%; text-align: center; }
+.pricing-card {
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(26,58,107,0.15);
+}
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.35rem 1.2rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.price-amount {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  line-height: 1;
+  margin: 1.5rem 0 0.3rem;
+}
+.price-amount sup { font-size: 1.5rem; vertical-align: top; margin-top: 0.5rem; }
+.price-period { color: var(--text-2); font-size: 0.95rem; margin-bottom: 2rem; }
+.price-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.price-features li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.price-features li:last-child { border-bottom: none; }
+.check { color: var(--green); font-weight: 700; }
+
+/* CONTACT */
+.contact-section {
+  background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+  padding: 80px 5%;
+  text-align: center;
+}
+.contact-section .section-title { color: var(--white); }
+.contact-section .section-sub { color: rgba(255,255,255,0.7); margin: 0 auto 2.5rem; }
+.contact-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.contact-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px); }
+.contact-card .icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.contact-card .label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+.contact-card .value { font-weight: 600; color: var(--white); margin-top: 0.3rem; font-size: 0.95rem; }
+
+/* FOOTER */
+footer {
+  background: var(--navy-dark);
+  padding: 2rem 5%;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+footer span { color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero > * { animation: fadeUp 0.6s ease both; }
+.hero-badge { animation-delay: 0.1s; }
+.hero h1 { animation-delay: 0.2s; }
+.hero p { animation-delay: 0.3s; }
+.hero-btns { animation-delay: 0.4s; }
+.hero-stats { animation-delay: 0.5s; }
+
+@media (max-width: 600px) {
+  nav .nav-links { display: none; }
+  .hero-stats { gap: 1.5rem; }
+  .features-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">GST <span>Automation</span> Pro</div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:dattatraypujari89@gmail.com" class="nav-cta">Get Started →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ For CA & Tax Professionals</div>
+  <h1>GST Downloads &amp;<br><span>Reconciliation</span><br>Made Effortless</h1>
+  <p>Download GSTR-2B, GSTR-1 for all clients in bulk, reconcile with Tally automatically, and send emails — all in one powerful desktop software.</p>
+  <div class="hero-btns">
+    <a href="mailto:dattatraypujari89@gmail.com" class="btn-primary">🚀 Get GST Automation Pro</a>
+    <a href="#features" class="btn-secondary">See Features ↓</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Clients in Bulk</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2 sec</div>
+      <div class="stat-label">Captcha Speed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">₹2,100</div>
+      <div class="stat-label">Per Year</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Windows Compatible</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-label">Features</div>
+  <div class="section-title">Everything India needs,<br>in one software</div>
+  <p class="section-sub">No more manual downloads. No more Excel headaches. GST Automation Pro handles it all automatically.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">⬇️</span>
+      <h3>Bulk GSTR-2B Download</h3>
+      <p>Download GSTR-2B for 50+ clients simultaneously. Excel automatically generated with all sections — B2B, CDNR, IMPG.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <h3>GSTR-1 Download & Excel</h3>
+      <p>Download GSTR-1 in bulk with full Excel — B2B, B2CL, CDNR, HSN, DOC summary. GSTR-1A rows highlighted in blue.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔄</span>
+      <h3>Tally Reconciliation</h3>
+      <p>Auto-reconcile GSTR-2B vs Tally books. Party-wise mismatch instantly visible. Bill-wise details on one click. Monthly & Yearly both.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📧</span>
+      <h3>Auto Email to Clients</h3>
+      <p>Send GSTR-2B Excel, GSTR-1, 3B ACK to all clients automatically via Gmail. All months in one email or separate.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <h3>Fast Login — No Browser</h3>
+      <p>Captcha appears in 2 seconds directly in software — no browser window needed. Session cached for all downloads.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔍</span>
+      <h3>GST Search & GSTIN Info</h3>
+      <p>Search any GSTIN — get Legal Name, Trade Name, Address, Jurisdiction, Turnover, Nature of Business instantly.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3>Ledger Balance</h3>
+      <p>View Electronic Cash Ledger, Credit Ledger, Liability Register, RCM Balance — all in one click per client.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📄</span>
+      <h3>Certificate & 3B ACK</h3>
+      <p>Download GST Registration Certificate and GSTR-3B Acknowledgement for all clients. Auto email on download.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📑</span>
+      <h3>GSTIN Bulk Search</h3>
+      <p>Paste 200 GSTINs in Excel template → get full details for all in one click. Legal Name, Address, Status, Turnover.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-label" style="color:var(--gold)">How it Works</div>
+  <div class="section-title">Simple. Fast. Automatic.</div>
+  <p class="section-sub">Set up once, run every month in minutes.</p>
+
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <h3>Add Clients</h3>
+      <p>Add all your clients with GSTIN, username & password. Import via Excel template.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <h3>Select & Download</h3>
+      <p>Select months, click Start Download. Software logs in, solves captcha, downloads all automatically.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <h3>Excel Ready</h3>
+      <p>Beautiful Excel with all sections — B2B, CDNR, HSN — auto-generated for each client.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <h3>Reconcile & Email</h3>
+      <p>Reconcile with Tally in one click. Email all clients automatically via Gmail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">Simple, Affordable Pricing</div>
+  <p class="section-sub" style="margin: 0 auto 3rem; max-width:500px">One plan. All features included. No hidden charges.</p>
+
+  <div class="pricing-card">
+    <div class="pricing-badge">✦ Best Value</div>
+    <p style="color:var(--text-2); font-size:0.9rem">GST Automation Pro</p>
+    <div class="price-amount"><sup>₹</sup>2,100</div>
+    <p class="price-period">per year · Unlimited clients</p>
+    <ul class="price-features">
+      <li><span class="check">✓</span> Bulk GSTR-2B Download (50+ clients)</li>
+      <li><span class="check">✓</span> Bulk GSTR-1 Download</li>
+      <li><span class="check">✓</span> Tally Reconciliation (Monthly & Yearly)</li>
+      <li><span class="check">✓</span> Auto Email to Clients</li>
+      <li><span class="check">✓</span> GST Search & GSTIN Bulk Search</li>
+      <li><span class="check">✓</span> Ledger Balance</li>
+      <li><span class="check">✓</span> Certificate & 3B ACK Download</li>
+      <li><span class="check">✓</span> Fast Login (No Browser)</li>
+      <li><span class="check">✓</span> Free Updates for 1 Year</li>
+      <li><span class="check">✓</span> WhatsApp Support</li>
+    </ul>
+    <a href="mailto:dattatraypujari89@gmail.com?subject=GST Automation Pro License" class="btn-primary" style="width:100%; justify-content:center; font-size:1.05rem">
+      Buy Now — ₹2,100/year
+    </a>
+    <p style="font-size:0.8rem; color:var(--text-2); margin-top:1rem">Contact via email to get license key</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label" style="color:var(--gold)">Contact</div>
+  <div class="section-title">Get in Touch</div>
+  <p class="section-sub">Questions? Want a demo? Reach out anytime.</p>
+
+  <div class="contact-cards">
+    <a href="mailto:dattatraypujari89@gmail.com" class="contact-card">
+      <div class="icon">📧</div>
+      <div class="label">Email</div>
+      <div class="value">dattatraypujari89@gmail.com</div>
+    </a>
+    <a href="https://github.com/dattatraypujari89" target="_blank" class="contact-card">
+      <div class="icon">💻</div>
+      <div class="label">GitHub</div>
+      <div class="value">dattatraypujari89</div>
+    </a>
+    <div class="contact-card">
+      <div class="icon">📍</div>
+      <div class="label">Location</div>
+      <div class="value">Pune, Maharashtra</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>GST Automation Pro</span> · Developed by Dattatray Pujari · Pune, Maharashtra</p>
+</footer>
+
+</body>
+</html>
